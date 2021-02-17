@@ -4,9 +4,9 @@
   <%= form.submit '投稿する', id: "submit" %>
 <% end %>
 
-
 <% @posts.each do |post| %>
-  <div class="post">
+  <!--これ以下がメモ部分なので、ここを発火させたい!-->
+  <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>> <!--カスタムデータ属性をここで指定!-->
     <div class="post-date">
       投稿日時：<%= post.created_at %>
     </div>
