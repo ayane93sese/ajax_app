@@ -1,0 +1,12 @@
+<h1>FirstApp</h1>
+<%= link_to '新規投稿', '/posts/new' %> <!--もし遷移先がGET以外のHTTPメソッドの場合だったら、ここに追加でmethod: :HTTPメソッドって記述しないと!-->
+<% @posts.each do |post| %>
+  <div class="post">
+    <div class="post-date">
+      投稿日時：<%= post.created_at %>
+    </div>
+    <div class="post-content">
+      <%= post.content %>
+    </div>
+  </div>
+<% end %>
