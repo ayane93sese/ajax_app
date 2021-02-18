@@ -6,10 +6,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: params[:content])
-    #これはPostモデルにActiveRecordメソッドのcreateを適用して、その後(カラム名:paramsの中身取り出したいのでparams[:content])と記載してますよ〜
-    redirect_to action: :index
-    #メモの保存後にトップページにリダイレクトされる記述
+    post = Post.create(content: params[:content], checked: false) #既読・未読の情報をchecked:falseで与えてます
+    render json:{ post: post } #レスポンスはjsonでくださいねの記述
   end
 
   def checked
@@ -22,7 +20,7 @@ class PostsController < ApplicationController
     end
 
     item = Post.find(params[:id]) #ここで更新したレコードを改めて取得
-    render json: { post: item } #ここでJSON形式でcheck.jsに返却
+    render json: { post: item } #レスポンスはjsonでくださいねの記述
   end
 
 end

@@ -1,8 +1,11 @@
 <h1>AjaxApp</h1>
 <%= form_with url:  "/posts", method: :post,id: "form" do |form| %>
-  <%= form.text_field :content %>
+  <%= form.text_field :content , id: "content"%> <!--contentを取得したいのでidを記述!-->
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
+
+<div id = "list">
+</div>
 
 <% @posts.each do |post| %>
   <!--これ以下がメモ部分なので、ここを発火させたい!-->
