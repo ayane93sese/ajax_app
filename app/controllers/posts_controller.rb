@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     end
 
     item = Post.find(params[:id]) #ここで更新したレコードを改めて取得
-    render json: { post: item } #レスポンスはjsonでくださいねの記述
+    render json: { post: item } #ここでJSON形式でcheck.jsに返却
   end
 
 end
